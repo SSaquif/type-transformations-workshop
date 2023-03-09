@@ -8,6 +8,9 @@
  * Which is which?
  */
 
+// discriminated union
+// There is a common property(key) that is used to discriminate between the types
+// see solution for more in-depth explanation
 type A =
   | {
       type: "a";
@@ -22,8 +25,10 @@ type A =
       c: string;
     };
 
+// Union
 type B = "a" | "b" | "c";
 
+// ENUM
 enum C {
   A = "a",
   B = "b",
