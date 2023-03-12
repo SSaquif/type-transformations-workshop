@@ -1,8 +1,9 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type CreateDataShape = {
-  data: unknown;
-  error: unknown;
+// This will work without the constraints on the type helpers (generic types T and E)
+type CreateDataShape<T extends string | number | boolean, E extends Error> = {
+  data: T;
+  error: E;
 };
 
 type tests = [
@@ -32,5 +33,5 @@ type tests = [
         error: SyntaxError;
       }
     >
-  >,
+  >
 ];
