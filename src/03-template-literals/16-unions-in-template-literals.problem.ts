@@ -4,7 +4,13 @@ type BreadType = "rye" | "brown" | "white";
 
 type Filling = "cheese" | "ham" | "salami";
 
-type Sandwich = unknown;
+type Sandwich = `${BreadType} sandwich with ${Filling}`;
+
+const s = "rye";
+const f = "cheese";
+
+const sandwich: Sandwich = `${s} sandwich with ${f}`;
+// const sandwich2: Sandwich = s + "sandwich with" + f; // Error, doesn't work with string concatenation
 
 type tests = [
   Expect<
