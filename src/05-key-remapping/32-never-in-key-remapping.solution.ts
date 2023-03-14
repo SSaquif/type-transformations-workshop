@@ -8,6 +8,7 @@ interface Example {
   groupId: string;
 }
 
+// don't then the second ${string}
 type OnlyIdKeys<T> = {
   [K in keyof T as K extends `${string}${"id" | "Id"}${string}`
     ? K

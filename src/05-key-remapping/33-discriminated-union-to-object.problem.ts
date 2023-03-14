@@ -12,7 +12,26 @@ type Route =
   | { route: "/admin"; search: {} }
   | { route: "/admin/users"; search: {} };
 
-type RoutesObject = unknown;
+// The basic building block here
+type Basic = {
+  [key in Route["route"]]: string;
+};
+type Example = Basic;
+
+// solution 1
+// this is creating a key by looping through
+// each value in the discriminated union
+type RoutesObject = {
+  [key in Route["route"]]: Extract<Route, { route: key }>["search"];
+};
+
+// solution 2
+// Iterating over the whole Route
+// here the trick is you need to use "as"
+// have to re-map Route object to a string
+type RoutesObject2 = {
+  [R in Route as R["route"]]: R["search"];
+};
 
 type tests = [
   Expect<
@@ -28,5 +47,5 @@ type tests = [
         "/admin/users": {};
       }
     >
-  >,
+  >
 ];
