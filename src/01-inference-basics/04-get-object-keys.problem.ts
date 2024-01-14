@@ -12,6 +12,7 @@ const testingFrameworks = {
   },
 };
 
+// Note: keyof only operates on types, not values
 type TestingFramework = keyof typeof testingFrameworks;
 
 type tests = [Expect<Equal<TestingFramework, "vitest" | "jest" | "mocha">>];

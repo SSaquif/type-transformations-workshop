@@ -11,6 +11,8 @@ const makeQuery = (
   }
 ) => {};
 
+// get the type of the parameters of makeQuery
+// a tuple is returned
 type MakeQueryParameters = Parameters<typeof makeQuery>;
 type MakeQueryParametersSecondArgument = MakeQueryParameters[1];
 
